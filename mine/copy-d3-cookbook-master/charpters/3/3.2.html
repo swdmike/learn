@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" type="text/css" href="../../css/styles.css" />
+	<script type="text/javascript" src="../../lib/d3.js"></script>
+</head>
+
+<body>
+	<!--<div style="width: 500px; height: 500px; vertical-align: bottom; background-color: #c16174;">-->
+	<!--<div class="v-bar" style="height: 36px;"><span>12</span></div>-->
+	<!--</div>-->
+	<script type="text/javascript">
+		let data = [43, 43, 12, 54, 62, 31, 8, 67, 87, 32, 29];
+
+		function render(data) {
+			let update = d3.select("body").selectAll("div.h-bar").data(data);
+			let enter = update.enter();
+			let exit = update.exit();
+
+
+			enter.append("div")
+				.attr("class", "h-bar")
+				.append("span")
+				.text(function (d) {
+					return d;
+				});
+			update.style("width",
+				function (d) {
+					return (d * 3) + "px";
+				})
+				.select("span")
+				.text(
+				function (d) {
+					return d;
+				});
+			exit.remove();
+			// d3.select("body").selectAll("div.h-bar")
+			// 	.data(data)
+			// 	.enter()
+			// 	.append("div")
+			// 	.attr("class", "h-bar")
+			// 	.append("span");
+
+			// d3.select("body").selectAll("div.h-bar")
+			// 	.data(data)
+			// 	.style("width",
+			// 		function (d) {
+			// 			return (d * 3) + "px";
+			// 		})
+			// 	.select("span")
+			// 	.text(
+			// 		function (d) {
+			// 			return d;
+			// 		})
+
+			// d3.select("body").selectAll("div.h-bar")
+			// 	.data(data)
+			// 	.exit()
+			// 	.remove();
+		}
+
+		setInterval(function () {
+			data.shift();
+			data.push(Math.round(Math.random() * 100));
+			render(data);
+		}, 1000);
+
+		render(data);
+	</script>
+</body>
+
+</html>
