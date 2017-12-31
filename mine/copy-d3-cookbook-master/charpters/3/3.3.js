@@ -1,48 +1,27 @@
-let data = [ // <- A
-    { width: 10, color: 23 }, { width: 15, color: 33 },
-    { width: 30, color: 40 }, { width: 50, color: 60 },
-    { width: 80, color: 22 }, { width: 65, color: 10 },
-    { width: 55, color: 5 }, { width: 30, color: 30 },
-    { width: 20, color: 60 }, { width: 10, color: 90 },
-    { width: 8, color: 10 }
-];
-
-var colorScale = d3.scaleLinear()
-    .domain([0, 100])
-    .range(["#add8e6", "blue"]); // <- B
-
-function render(data) {
-    var bars = d3.select("body").selectAll("div.h-bar")
-        .data(data); // Update
+/// <reference path="/home/swd/types/node_modules/@types/d3/index.d.ts" />
+function render(data) { // <- B
+    var bars = d3.select("body").selectAll("div.h-bar") // <- C
+        .data(data); // Update <- D
 
     // Enter
-    bars.enter()
-        .append("div")
-        .attr("class", "h-bar")
-        .merge(bars) // Enter + Update
-        .style("width", function (d) { // <- C
-            return (d.width * 5) + "px"; // <- D
-        })
-        .style("background-color", function (d) {
-            return colorScale(d.color); // <- E
+    bars.enter() // <- E
+        .append("div") // <- F
+        .attr("class", "h-bar") // <- G
+        .merge(bars) // Enter + Update <- H
+        .style("width", function (d) {
+            return (d * 3) + "px"; // <- I
         })
         .text(function (d) {
-            return d.width; // <- F
+            return d; // <- J
         });
 
-
     // Exit
-    bars.exit().remove();
+    bars.exit() // <- K
+        .remove();
 }
-
-function randomValue() {
-    return Math.round(Math.random() * 100);
-}
-
-setInterval(function () {
+var data = [70, 15, 30, 50, 80, 65, 55, 30, 20, 10, 8];
+setInterval(function () { // <- L
     data.shift();
-    data.push({ width: randomValue(), color: randomValue() });
+    data.push(Math.round(Math.random() * 100));
     render(data);
 }, 500);
-
-render(data);

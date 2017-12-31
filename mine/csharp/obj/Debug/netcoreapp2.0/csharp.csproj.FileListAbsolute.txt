@@ -1,0 +1,10 @@
+/home/swd/learn/mine/csharp/bin/Debug/netcoreapp2.0/csharp.deps.json
+/home/swd/learn/mine/csharp/bin/Debug/netcoreapp2.0/csharp.runtimeconfig.json
+/home/swd/learn/mine/csharp/bin/Debug/netcoreapp2.0/csharp.runtimeconfig.dev.json
+/home/swd/learn/mine/csharp/bin/Debug/netcoreapp2.0/csharp.dll
+/home/swd/learn/mine/csharp/bin/Debug/netcoreapp2.0/csharp.pdb
+/home/swd/learn/mine/csharp/obj/Debug/netcoreapp2.0/csharp.csproj.CoreCompileInputs.cache
+/home/swd/learn/mine/csharp/obj/Debug/netcoreapp2.0/csharp.AssemblyInfoInputs.cache
+/home/swd/learn/mine/csharp/obj/Debug/netcoreapp2.0/csharp.AssemblyInfo.cs
+/home/swd/learn/mine/csharp/obj/Debug/netcoreapp2.0/csharp.dll
+/home/swd/learn/mine/csharp/obj/Debug/netcoreapp2.0/csharp.pdb
